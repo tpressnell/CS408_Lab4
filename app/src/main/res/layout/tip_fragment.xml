@@ -53,6 +53,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tipPercent" />
 
+    <TextView
+        android:id="@+id/dollarSign"
+        android:layout_width="13dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginBottom="40dp"
+        android:text="$"
+        app:layout_constraintBottom_toTopOf="@+id/percentSign"
+        app:layout_constraintEnd_toStartOf="@+id/mealCost"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/percentSign"
+        android:layout_width="13dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginBottom="618dp"
+        android:text="%"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tipPercent"
+        app:layout_constraintTop_toBottomOf="@+id/dollarSign" />
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
         android:layout_width="wrap_content"

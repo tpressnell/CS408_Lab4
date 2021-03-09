@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
+
 public class TipFragment extends Fragment {
 
     private TextView output;
@@ -25,29 +27,34 @@ public class TipFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
         output = (TextView) view.findViewById(R.id.output);
+        textBill = (EditText) view.findViewById(R.id.mealCost);
+        textPercent = (EditText) view.findViewById(R.id.tipPercent);
+        textNumPeople = (EditText) view.findViewById(R.id.numPeople);
         view.findViewById(R.id.calculateBtn).setOnClickListener(this::onClick);
     }
 
     public void onClick(View v) {
-        Double bill;
-        Double percent;
-        int numPeople;
-        Double costPerPerson;
+        double bill;
+        double percent;
+        double numPeople;
+        double costPerPerson;
+        DecimalFormat df = new DecimalFormat("#.00");
+
+        try {
+
+            bill = Double.parseDouble(textBill.getText().toString());
+            percent = Double.parseDouble(textPercent.getText().toString());
+            numPeople = Double.parseDouble(textNumPeople.getText().toString());
+            percent = percent * .01;
+            costPerPerson = (bill + (bill * percent)) / numPeople;
+            costPerPerson = Double.parseDouble(df.format(costPerPerson));
 
 
-        textBill = (EditText) v.findViewById(R.id.mealCost);
-        bill = Double.parseDouble(textBill.getText().toString());
+            output.setText("$" + costPerPerson);
+        }
 
-        textPercent = (EditText) v.findViewById(R.id.tipPercent);
-        percent = Double.parseDouble(textPercent.getText().toString());
-
-        textNumPeople = (EditText) v.findViewById(R.id.mealCost);
-        numPeople = Integer.parseInt(textNumPeople.getText().toString());
-
-        percent = percent * .01;
-
-        costPerPerson = (bill + (bill * percent)) / numPeople;
-
-        output.setText("$" + costPerPerson);
+        catch(Exception e){
+            output.setText("onClickTriggered");
+        }
     }
 }
