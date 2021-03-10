@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.DecimalFormat;
 
@@ -38,7 +39,10 @@ public class TipFragment extends Fragment {
         double percent;
         double numPeople;
         double costPerPerson;
+        Toast toast = Toast.makeText(getActivity(), "Please ensure that no fields are empty and the values are numeric.", Toast.LENGTH_SHORT);
         DecimalFormat df = new DecimalFormat("#.00");
+
+
 
         try {
 
@@ -54,7 +58,7 @@ public class TipFragment extends Fragment {
         }
 
         catch(Exception e){
-            output.setText("onClickTriggered");
+            toast.show();
         }
     }
 }

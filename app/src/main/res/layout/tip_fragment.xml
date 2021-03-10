@@ -61,7 +61,7 @@
         android:layout_marginEnd="2dp"
         android:layout_marginRight="2dp"
         android:layout_marginBottom="40dp"
-        android:text="@string/_$"
+        android:text="@string/dollarSign"
         app:layout_constraintBottom_toTopOf="@+id/percentSign"
         app:layout_constraintEnd_toStartOf="@+id/mealCost"
         app:layout_constraintTop_toTopOf="parent" />
